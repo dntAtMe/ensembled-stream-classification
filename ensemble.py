@@ -61,7 +61,7 @@ def build_batch_incremental_ensemble(n_estimators: int, base_estimator: object):
     ensemble : object
         The created ensemble
     """
-    BatchIncrementalClassifier(n_estimators = n_estimators, base_estimator = base_estimator)
+    return BatchIncrementalClassifier(n_estimators = n_estimators, base_estimator = base_estimator)
 
 def build_dynamic_weighted_majority_ensemble(n_estimators: int, base_estimator: object):
     """
