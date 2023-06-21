@@ -2,7 +2,7 @@ from sklearn import datasets
 from skmultiflow.data import DataStream
 import pandas as pd
 
-def build_data_stream(type: str, **kwargs):
+def build_data_stream(type: str, as_data_frame=False, **kwargs):
     """
     Build a stream of data.
 
@@ -18,6 +18,9 @@ def build_data_stream(type: str, **kwargs):
     """
     if type == 'covtype':
         dataset = datasets.fetch_covtype(data_home='./datasets', as_frame=True)
-        return DataStream(data=dataset)
+        if as_data_frame:
+            return dataset
+        else:
+            return DataStream(data=dataset.data)
     else:
         raise ValueError(f'Invalid stream type: {type}')
